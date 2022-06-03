@@ -1,7 +1,7 @@
 const ID = "_id"
 const SCORE = "_score"
 
-export function initScoreBoard(document, scoreboard, game, currentPlayerId){
+function initScoreBoard(document, scoreboard, game, currentPlayerId){
    
    for (const playerId in game.state.players){
       addPlayerToScoreBoard(document, scoreboard, game, playerId, currentPlayerId)
@@ -41,4 +41,29 @@ export function updatePlayerScore(document, playerId, game){
    const player = game.state.players[playerId]
    const score = player.score
    document.getElementById(playerId + SCORE).innerText = score
+}
+
+export function resetScoreBoard(document, scoreboard, game, currentPlayerId){
+   clearScoreBoard(scoreboard)
+   addHeaders(document, scoreboard)
+   initScoreBoard(document, scoreboard, game, currentPlayerId)
+}
+
+function addHeaders(document, scoreboard){
+   const newRow = document.createElement('tr')
+   
+   const playerIdElement = document.createElement('th')
+   playerIdElement.innerText = "Player Id"
+
+   const playerScoreElement = document.createElement('th')
+   playerScoreElement.innerText = "Score"
+   
+   newRow.appendChild(playerIdElement)
+   newRow.appendChild(playerScoreElement)
+   
+   scoreboard.appendChild(newRow)
+}
+
+function clearScoreBoard(scoreboard){
+   while (scoreboard.lastChild) scoreboard.lastChild.remove()
 }

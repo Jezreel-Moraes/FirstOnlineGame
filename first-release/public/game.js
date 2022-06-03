@@ -17,7 +17,7 @@ export default function createGame(){
    
    function incrementScore(command){
       const playerId = command.playerId
-      state.players[playerId].score++
+      state.players[playerId].score += 50
 
       notifyAll({
          type:'increment-score',
@@ -36,7 +36,6 @@ export default function createGame(){
 
    function start(){
       const frequency = 2000
-
       setInterval(addFruit, frequency)
    }
 

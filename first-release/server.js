@@ -35,6 +35,7 @@ sockets.on('connection', (socket) => {
 })
 
 sockets.on('disconnect', () => {
+   sockets.emit('disconnect')
    game.unsubscribeAll()
 })
 
