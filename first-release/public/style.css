@@ -1,0 +1,44 @@
+html, body { 
+height: 100%;
+width: 100%;
+overflow: hidden;
+overflow-x: hidden;
+}
+
+body {
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   display: grid;
+   place-items: center;
+}
+
+*{
+   border: none;
+   padding: none;
+   margin: none;
+   outline: none;
+   box-sizing: border-box;
+
+}
+
+#screen {
+   image-rendering: pixelated;
+   image-rendering: crisp-edges;
+   image-rendering: -moz-crisp-edges;
+   width: 950px;
+   height: 950px;
+   border: 5px solid #ccc;
+   background-color: rgba(198, 253, 255, 0.5);
+}
+
+#scoreboard{
+   position: absolute;
+   right: 25px;
+   padding: 10px;
+   top: 22px;
+   width:  400px;
+   background-color: #ccc
+}
+
+#scoreboard td {
+   height: 30px;
+}
